@@ -58,7 +58,7 @@ Automatically manage EC2 instance power states:
 
 # ASSIGNMENT_2:🧠 Sentiment Analysis of User Reviews using AWS Lambda & Amazon Comprehend
 
-## 🚀 Objective
+## 📌 Objective
 
 This assignment demonstrates how to:
     - Deploy a Lambda function using Python and Boto3.
@@ -74,6 +74,7 @@ This assignment demonstrates how to:
         - "ComprehendFullAccess"
         - "AWSLambdaBasicExecutionRole"
     4. Named it: "GunLambdaComprehend"
+    5. Screenshot 1, 2 & 3
 
 2. 📦 Create Lambda Function
 
@@ -83,6 +84,7 @@ This assignment demonstrates how to:
         - Execution role: Use existing role → "GunLambdaComprehend"
     3. In the code section added the code as per "lambda_function.py"
     4. Deployed the function.
+    5. Screenshot 4 & 5
 
 3. ⚙️ Configure Lambda Timeout(As the default is only 3 seconds which is not sufficient)
 
@@ -90,11 +92,11 @@ This assignment demonstrates how to:
     2. Click Edit
         - Set Timeout to at least 30 seconds
     3. Save the configuration
-    4. Screenshot 7
+    4. Screenshot 6
 
 5. 🧪 Test the Function
 
-    1. Click Test > Create test event 
+    1. Click Test > Create test event(Screenshot 7)
     2. Used the input as 
         ```txt
             {
@@ -107,7 +109,7 @@ This assignment demonstrates how to:
             }
         ```
     3. Clicked Test
-    4. Got the below output
+    4. Got the below output(Screenshot 8)
          ```txt
             Response:
             {
