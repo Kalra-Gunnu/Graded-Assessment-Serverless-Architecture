@@ -35,8 +35,8 @@ Automatically manage EC2 instance power states:
     3. In the code section added the code as per "lambda_function.py"
     4. Screenshot 5 & 6
 
-
 4. ⚙️ Configure Lambda Timeout(As the default is only 3 seconds which is not sufficient)
+
     1. Go to Configuration > General configuration
     2. Click Edit
         - Set Timeout to at least 30 seconds
@@ -44,6 +44,7 @@ Automatically manage EC2 instance power states:
     4. Screenshot 7
 
 5. 🧪 Test the Function
+
     1. Click Test > Create test event (use {} for input)(Screenshot 8)
     2. Click Test
     3. Go to EC2 Dashboard and confirm:
