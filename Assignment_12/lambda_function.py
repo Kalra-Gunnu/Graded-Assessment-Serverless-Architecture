@@ -7,7 +7,7 @@ ec2 = boto3.client('ec2')
 sns = boto3.client('sns')
 
 # Environment variables (configure in Lambda console)
-ELB_NAME = os.environ['ELB_NAME']  # Full ALB name e.g., 'app/my-alb/50db738a8d622ec5'
+ELB_NAME = os.environ['ELB_NAME'] 
 SNS_TOPIC_ARN = os.environ['SNS_TOPIC_ARN']
 AMI_ID = os.environ['AMI_ID']
 INSTANCE_TYPE = os.environ['INSTANCE_TYPE']
