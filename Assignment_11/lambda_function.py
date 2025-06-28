@@ -36,6 +36,22 @@ def run_ssm_command(instance_id, command):
 
 
 def lambda_handler(event, context):
+    """
+    AWS Lambda Function: EC2 File Backup to S3 with Cleanup
+
+    Algorithm & Working:
+    1. Use AWS Systems Manager (SSM) to run shell commands on an EC2 instance.
+    2. Check if the backup directory exists and list its contents.
+    3. Create a ZIP file of the directory and store it in the /tmp path.
+    4. Verify ZIP file creation by listing the /tmp directory.
+    5. Upload the ZIP file to a designated S3 bucket under the 'backups/' prefix.
+    6. Call `delete_old_backups()` to remove ZIPs older than 30 days from S3.
+
+    Purpose:
+    Automates backup of files from an EC2 instance to S3, while maintaining storage hygiene
+    by deleting old backups older than 30 days. Helps in scheduled and cost-effective snapshot-style backups.
+    """
+
     print("Starting EC2 backup process...")
 
     # 1. Confirm directory exists and list files

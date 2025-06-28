@@ -6,22 +6,43 @@ cloudwatch = boto3.client('cloudwatch')
 ec2 = boto3.client('ec2')
 sns = boto3.client('sns')
 
-# Environment variables (configure in Lambda console)
+# Environment variables (configured in Lambda console)
 ELB_NAME = os.environ['ELB_NAME'] 
 SNS_TOPIC_ARN = os.environ['SNS_TOPIC_ARN']
 AMI_ID = os.environ['AMI_ID']
 INSTANCE_TYPE = os.environ['INSTANCE_TYPE']
 KEY_NAME = os.environ['KEY_NAME']
-SECURITY_GROUP_IDS = os.environ['SECURITY_GROUP_IDS'].split(',')
+# SECURITY_GROUP_IDS should be a comma-separated string of security group IDs because ec2.run instances expects a list. You can give a single security group as input though
+SECURITY_GROUP_IDS = os.environ['SECURITY_GROUP_IDS'].split(',') 
 SUBNET_ID = os.environ['SUBNET_ID']
 TAG_KEY = os.environ['TAG_KEY']
 TAG_VALUE = os.environ['TAG_VALUE']
 
-# Thresholds (tune based on your test traffic)
-HIGH_THRESHOLD = 500  # Total requests over 5 minutes to scale up
+# Thresholds for scaling decisions
+HIGH_THRESHOLD = 1000  # Total requests over 5 minutes to scale up
 LOW_THRESHOLD = 200    # Total requests to scale down
 
 def lambda_handler(event, context):
+    """
+    AWS Lambda Function: Auto-Scale EC2 Instances Based on ALB RequestCount
+
+    Algorithm & Working:
+    1. Fetch the sum of incoming requests from CloudWatch for the past 5 minutes
+       using the 'RequestCount' metric from the specified Application Load Balancer.
+    2. List all running EC2 instances tagged with a specific autoscaling tag.
+    3. If traffic is high (above HIGH_THRESHOLD):
+       - Launch a new EC2 instance with required settings (AMI, instance type, security groups).
+       - Tag it appropriately and notify via SNS.
+    4. If traffic is low (below LOW_THRESHOLD) and there are running instances:
+       - Terminate one of the tagged running instances.
+       - Notify via SNS.
+    5. If traffic is within limits, no scaling action is taken.
+
+    Purpose:
+    Enables basic auto-scaling for EC2 instances based on load balancer traffic, with real-time
+    notifications via SNS. Helps maintain performance and cost-efficiency without manual intervention.
+    """
+
     now = datetime.datetime.utcnow()
     start_time = now - datetime.timedelta(minutes=5)
     

@@ -11,6 +11,23 @@ logger.setLevel(logging.INFO)
 comprehend = boto3.client('comprehend')
 
 def lambda_handler(event, context):
+    """
+    AWS Lambda Function: Sentiment Analysis on Product Reviews using Amazon Comprehend
+
+    Algorithm & Working:
+    1. Extract the "reviews" list from the incoming event payload.
+    2. Validate that the input is a non-empty list of strings.
+    3. For each valid review:
+       - Use Amazon Comprehend to detect the sentiment (`Positive`, `Negative`, `Neutral`, or `Mixed`).
+       - Capture sentiment and confidence scores.
+       - Log and append results.
+    4. Handle and log errors for individual reviews if they occur.
+    5. Return all sentiment analysis results as a JSON response.
+
+    Purpose:
+    Automates the analysis of customer feedback using NLP to identify overall sentiment in real time.
+    """
+    
     reviews = event.get("reviews", [])
 
     # Validate the input
