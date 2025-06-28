@@ -121,6 +121,127 @@
         ```
     5. Screenshot 7 & 8
 
+# SSIGNMENT_11: ☁️ EC2 Backup and Cleanup with Lambda, S3 & EventBridge
+
+-  This project automatically backs up specified directories from an EC2 instance to an S3 bucket using AWS Lambda and deletes backups older than 30 days.
+
+## 🔧 Steps
+
+1. 🔐 Creating IAM Role for Lambda
+
+    1. Went to AWS Console → IAM → Roles → Create Role.
+    2. Selected "AWS service" as the trusted service and use case as "Lambda"
+    3. Attached the following policies:
+        - "AWSLambdaBasicExecutionRole"
+        - "AmazonSSMFullAccess"
+        - "AmazonS3FullAccess"
+    4. Named it: "GunBackupRole"
+    5. Screenshot 1 & 2
+
+2. 🚀 Launching EC2 Instances
+
+    1. Opened AWS EC2 Dashboard
+    2. Launched an ubuntu t2.micro instance
+    3. Screenshot 3
+
+3. 🔐 Creating IAM Role for EC2 and attaching to EC2 instance
+
+    1. Went to AWS Console → IAM → Roles → Create Role.
+    2. Selected "AWS service" as the trusted service and use case as "EC2"
+    3. Attached the following policies:
+        - "AmazonSSMManagedInstanceCore"
+        - "AmazonS3FullAccess"
+    4. Named it: "GunEC2SSMRole"
+    5. Attached the above role to my EC2 Isntance
+        - Went to EC2 -> Instances
+        - Selected my instance → Actions > Security > Modify IAM Role
+        - Selected the Role "GunEC2SSMRole" and clicked on Update IAM Role
+    6. Screenshot 4 & 5
+
+
+4. ⚙️ 🛠️ Installing Required Tools and folder on EC2:
+
+    1. Ran below commands
+    ```bash
+        # 1. Update packages
+        sudo apt update
+
+        # 2. Install required tools
+        sudo apt install -y unzip curl
+
+        # 3. Download the AWS CLI v2 installer
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+        # 4. Unzip the package
+        unzip awscliv2.zip
+
+        # 5. Install AWS CLI
+        sudo ./aws/install
+
+        # 6. Verify the installation
+        aws --version
+
+        # 7. Install ZIP
+        sudo apt install -y zip
+
+        # 8. Make a data folder in /home/ubuntu
+        mkdir -p /home/ubuntu/data
+
+        # 9. Create a test file inside dat folder
+        sudo nano /home/ubuntu/data/sample.txt
+
+        # 10. Give the below content in the file
+        sample text
+    ```
+    2. Screenshots 6 through 9
+
+5. 📦 Create S3 Bucket
+
+    1. Went to Amazon S3 -> Buckets -> Create Bucket
+    2. Parameters:
+        - Bucket Type: General purpose
+        - Bucket name: "gundeep-ec2-backup-bucket"
+    3. Clicked on Create folder and created a "backups/" inside the S3 bucket
+    4. Screenshots 10 & 11
+
+6. 📦 Creating Lambda Function
+
+    1. Opened AWS Lambda → Create Function
+    2. Selected:
+        - Runtime: Python 3.13
+        - Execution role: Use existing role → "GunBackupRole"
+    3. In the code section added the code as per "lambda_function.py"
+    4. Deployed the function.
+    5. Screenshot 12 & 13
+
+
+7. ⏰ Schedule Lambda with EventBridge
+
+    1. Rule Details:
+        - Name: GunEC2DailyBckup
+        - Type: Schedule
+    2. Creating Schedule
+        - Pattern: Recurring Schedule
+        - Type: Rate-based schedule
+        - Rate expression: rate(1 day)
+    3. Selecting Target: EC2BackupToS3 
+        - Select Lambda
+        - Lambda Function: "gundeepEC2BackupLambda"
+    4. Screenshots 14 through 18
+
+
+6. 🧪 Testing the setup & Validation
+    1. Manual Trigger:
+        - Went to my Lambda
+        - Clicked Test
+        - Created a test event with {} as the payload
+    2. Verification:
+        - See the logs in lambda fucntion console for the run and see the success for the run
+        - Checked the Cloudwatch Log streams and see the success for all the steps
+        - a new .zip file appears in /tmp location of the EC2 instance
+        - New zip file appears in backups/ folder of the S3 bucket
+    3. Screenshots 19 through 22
+
 # ASSIGNMENT_12: 🚀 Auto-Scale EC2 Instances Based on ALB Load Using AWS Lambda
 
 Demonstrates how to automatically scale EC2 instances up or down based on HTTP request load on an Application Load Balancer (ALB) using AWS Lambda, CloudWatch, Boto3, and SNS.
