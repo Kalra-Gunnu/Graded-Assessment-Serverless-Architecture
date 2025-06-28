@@ -1,5 +1,6 @@
 # Graded-Assessment-Serverless-Architecture
 
+
 # ASSIGNMENT_1: 🔁 Automated EC2 Instance Management using AWS Lambda and Boto3
 
 ## 📌 Objective
@@ -33,7 +34,7 @@
     2. Selected:
         - Runtime: Python 3.13
         - Use existing role: "GunLambdaEC2ControlRole"
-    3. In the code section added the code as per "lambda_function.py"
+    3. In the code section added the code as per [lambda_function.py](Assignment_1/lambda_function.py)
     4. Deployed the function
     5. Screenshot 5 & 6
 
@@ -84,7 +85,7 @@
     2. Selected:
         - Runtime: Python 3.13
         - Execution role: Use existing role → "GunLambdaComprehend"
-    3. In the code section added the code as per "lambda_function.py"
+    3. In the code section added the code as per [lambda_function.py](Assignment_8/lambda_function.py)
     4. Deployed the function.
     5. Screenshot 4 & 5
 
@@ -121,7 +122,7 @@
         ```
     5. Screenshot 7 & 8
 
-# SSIGNMENT_11: ☁️ EC2 Backup and Cleanup with Lambda, S3 & EventBridge
+# ASSIGNMENT_11: ☁️ EC2 Backup and Cleanup with Lambda, S3 & EventBridge
 
 -  This project automatically backs up specified directories from an EC2 instance to an S3 bucket using AWS Lambda and deletes backups older than 30 days.
 
@@ -210,7 +211,7 @@
     2. Selected:
         - Runtime: Python 3.13
         - Execution role: Use existing role → "GunBackupRole"
-    3. In the code section added the code as per "lambda_function.py"
+    3. In the code section added the code as per [lambda_function.py](Assignment_11/lambda_function.py)
     4. Deployed the function.
     5. Screenshot 12 & 13
 
@@ -241,6 +242,17 @@
         - a new .zip file appears in /tmp location of the EC2 instance
         - New zip file appears in backups/ folder of the S3 bucket
     3. Screenshots 19 through 22
+    4. For testing purpose, changed my code to delete backup after 3 hours by modifying below command:
+        - FROM: 
+        ```bash 
+        threshold = datetime.now(timezone.utc) - timedelta(days=30)
+        ```
+        - TO:
+        ```bash 
+        threshold = datetime.now(timezone.utc) - timedelta(hours=3)
+        ```
+    5. This deleted the old backup created more than 3 hours ago and created a fresh new one.
+    6. Screenshots 23 through 25
 
 # ASSIGNMENT_12: 🚀 Auto-Scale EC2 Instances Based on ALB Load Using AWS Lambda
 
@@ -282,7 +294,7 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
     2. Selected:
         - Runtime: Python 3.13
         - Execution role: Use existing role → "GunAutoScalingRole"
-    3. In the code section added the code as per "lambda_function.py"
+    3. In the code section added the code as per [lambda_function.py](Assignment_12/lambda_function.py)
     4. Deployed the function. 
     5. Screenshots 10 through 13
     6. ***IMP***: Configure Lambda Timeout to 30 as the default is only 3 seconds which is not sufficient
