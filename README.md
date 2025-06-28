@@ -119,13 +119,51 @@
         ```
     3. Clicked Test
     4. Got the below output
-         ```json
-            Response:
-            {
-            "statusCode": 200,
-            "body": "[{\"review\": \"The product quality is outstanding and delivery was quick!\", \"sentiment\": \"POSITIVE\", \"scores\": {\"Positive\": 0.9998030066490173, \"Negative\": 2.6848219931707717e-05, \"Neutral\": 0.00014002130774315447, \"Mixed\": 3.01614600175526e-05}}, {\"review\": \"Terrible experience, never buying again.\", \"sentiment\": \"NEGATIVE\", \"scores\": {\"Positive\": 5.5882537708384916e-05, \"Negative\": 0.9998699426651001, \"Neutral\": 3.552652196958661e-05, \"Mixed\": 3.859693606500514e-05}}, {\"review\": \"Average service, nothing special.\", \"sentiment\": \"NEGATIVE\", \"scores\": {\"Positive\": 0.04296882823109627, \"Negative\": 0.7299136519432068, \"Neutral\": 0.009315179660916328, \"Mixed\": 0.21780230104923248}}, {\"review\": \"Absolutely love it! Five stars!\", \"sentiment\": \"POSITIVE\", \"scores\": {\"Positive\": 0.999737560749054, \"Negative\": 8.89741349965334e-05, \"Neutral\": 0.00012599884939845651, \"Mixed\": 4.741360680782236e-05}}]"
-            }
+        ```json
+            [
+                {
+                    "review": "The product quality is outstanding and delivery was quick!",
+                    "sentiment": "POSITIVE",
+                    "scores": {
+                    "Positive": 0.9998,
+                    "Negative": 0.00003,
+                    "Neutral": 0.00014,
+                    "Mixed": 0.00003
+                    }
+                },
+                {
+                    "review": "Terrible experience, never buying again.",
+                    "sentiment": "NEGATIVE",
+                    "scores": {
+                    "Positive": 0.00006,
+                    "Negative": 0.9999,
+                    "Neutral": 0.00004,
+                    "Mixed": 0.00004
+                    }
+                },
+                {
+                    "review": "Average service, nothing special.",
+                    "sentiment": "NEGATIVE",
+                    "scores": {
+                    "Positive": 0.0430,
+                    "Negative": 0.7299,
+                    "Neutral": 0.0093,
+                    "Mixed": 0.2178
+                    }
+                },
+                {
+                    "review": "Absolutely love it! Five stars!",
+                    "sentiment": "POSITIVE",
+                    "scores": {
+                    "Positive": 0.9997,
+                    "Negative": 0.00009,
+                    "Neutral": 0.00013,
+                    "Mixed": 0.00005
+                    }
+                }
+                ]
         ```
+
     5. Screenshot 7 & 8
 
 ## Assignment 11 - EC2 Backup and Cleanup with Lambda, S3 and EventBridge
