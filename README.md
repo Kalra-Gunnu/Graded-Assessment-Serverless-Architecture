@@ -368,12 +368,12 @@
     4. Screenshots 26 through 38
 
 8. 🧩 Extras: Load Testing with [Loader.io](https://loader.io/)
-    1. To test the application's load-handling capabilities, we used Loader.io as follows:
-    2. Signed Up on Loader.io with a new account.
-    3. Added the Application Load Balancer (ALB) URL as the target host in Loader.io.
-    4. Verification File Required: Loader.io provided a verification token and asked to place it on the server.
-    5. Created the Verification File on the EC2 instance (which was part of the ALB's target group).
-    6. Installed Nginx on the EC2 instance and placed the verification file in the /var/www/html directory.
-    7. Accessed the ALB URL in the Browser to confirm the file was being served correctly.
-    8. Verification Successful: Loader.io verified the ALB URL as a valid host.
-    9. Created and Executed a Load Test to simulate traffic and assess application performance under load.
+- To test the application's load-handling capabilities, used Loader.io as follows:
+    1. Signed Up on Loader.io with a new account.
+    2. Added the Application Load Balancer (ALB) URL as the target host in Loader.io.
+    3. Verification File Required: Loader.io provided a verification token and asked to place it on the server.
+    4. Created the Verification File on the EC2 instance (which was part of the ALB's target group).
+    5. Installed Nginx on the EC2 instance and placed the verification file in the /var/www/html directory.
+    6. Accessed the ALB URL in the Browser to confirm the file was being served correctly.
+    7. Verification Successful: Loader.io verified the ALB URL as a valid host.
+    8. Created and Executed a Load Test to simulate traffic and assess application performance under load.
