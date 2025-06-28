@@ -32,7 +32,7 @@
     1. Went to IAM > Roles > Create Role
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached the below policy
-        - `AmazonEC2FullAccess` -> 
+        - `AmazonEC2FullAccess` -> Provides full access to Amazon EC2 via the AWS Management Console
     4. Named it: `GunLambdaEC2ControlRole`
     5. Screenshot 3 & 4
 
@@ -79,8 +79,8 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached the following policies:
-        - `ComprehendFullAccess` -> 
-        - `AWSLambdaBasicExecutionRole` -> 
+        - `ComprehendFullAccess` -> Provides full access to Amazon Comprehend
+        - `AWSLambdaBasicExecutionRole` -> Provides write permissions to CloudWatch Logs
     4. Named it: `GunLambdaComprehend`
     5. Screenshot 1 through 3
 
@@ -141,9 +141,9 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached the following policies:
-        - `AWSLambdaBasicExecutionRole` ->
-        - `AmazonSSMFullAccess` -> 
-        - `AmazonS3FullAccess` -> 
+        - `AWSLambdaBasicExecutionRole` -> Provides write permissions to CloudWatch Logs
+        - `AmazonSSMFullAccess` -> Provides full access to Amazon SSM
+        - `AmazonS3FullAccess` -> Provides full access to all buckets via the AWS Management Console
     4. Named it: `GunBackupRole`
     5. Screenshot 1 & 2
 
@@ -158,8 +158,8 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `EC2`
     3. Attached the following policies:
-        - `AmazonSSMManagedInstanceCore` ->
-        - `AmazonS3FullAccess` ->
+        - `AmazonSSMManagedInstanceCore` -> The policy for Amazon EC2 Role to enable AWS Systems Manager service core functionality
+        - `AmazonS3FullAccess` -> Provides full access to all buckets via the AWS Management Console
     4. Named it: `GunEC2SSMRole`
     5. Attached the above role to my EC2 Instance
         - Went to EC2 -> Instances
