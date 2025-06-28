@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
-- [Assignment 1 - EC2 Automation](#assignment_1)
-- [Assignment 8 - Sentiment Analysis](#assignment_8)
-- [Assignment 11 - EC2 Backup with Lambda](#assignment_11)
-- [Assignment 12 - Auto-Scale with ALB](#assignment_12)
+- [Assignment 1 - EC2 Automation](#ASSIGNMENT_1)
+- [Assignment 8 - Sentiment Analysis](#ASSIGNMENT_8)
+- [Assignment 11 - EC2 Backup with Lambda](#ASSIGNMENT_11)
+- [Assignment 12 - Auto-Scale with ALB](#ASSIGNMENT_12)
 
 
 # ASSIGNMENT_1: 🔁 Automated EC2 Instance Management using AWS Lambda and Boto3
