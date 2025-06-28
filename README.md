@@ -24,7 +24,7 @@
 
     1. Opened AWS EC2 Dashboard
     2. Launched 2 t2.micro instances
-    3. Added the tag `Auto_Stop` to Instance_1(`gun-assignment-1`) and `Auto_Start` to Instance_2(`gun-assignment-2`)
+    3. Added the tag `Auto-Stop` to Instance_1(`gun-assignment-1`) and `Auto-Start` to Instance_2(`gun-assignment-2`)
     4. Screenshot 1 & 2
 
 2. 🔐 Creating IAM Role for Lambda
@@ -53,7 +53,7 @@
     2. Clicked Edit
         - Set Timeout to at least 30 seconds
     3. Saved the configuration
-    4. Screenshot 7
+    4. [Screenshot 7](Assignment_1\screenshots\7. Configuration Change.png)
 
 5. 🧪 Testing the Setup
 
