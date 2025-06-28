@@ -107,7 +107,7 @@
 
     1. Went to Test > Create test event
     2. Used the input as 
-        ```txt
+        ```json
             {
             "reviews": [
                 "The product quality is outstanding and delivery was quick!",
@@ -119,7 +119,7 @@
         ```
     3. Clicked Test
     4. Got the below output
-         ```txt
+         ```json
             Response:
             {
             "statusCode": 200,
