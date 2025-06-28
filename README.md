@@ -10,7 +10,7 @@
 
 ## Assignment 1 - Automated EC2 Instance Management using AWS Lambda and Boto3
 
-## 📌 Objective
+### 📌 Objective
 
 - This assignment demonstrates how to:
     - Automatically manage EC2 instance power states
@@ -18,7 +18,7 @@
     - Start instances tagged as `Auto-Start`
     - Limit to instances owned by me (`Name` tag starts with `gun-assignment-*`)
 
-## 🔧 Steps
+### 🔧 Steps
 
 1. 🚀 Launching EC2 Instances
 
@@ -60,19 +60,19 @@
     1. Went to Test > Create test event (use {} for input)
     2. Tested it 3 times:
         - With both running: After running, Stopped the 1st instance
-        - With both stopped: After running, Started the 2ns instance
+        - With both stopped: After running, Started the 2nd instance
         - With 1st running and 2nd stopped: After running, Stopped 1st instance and Started 2nd instance
     3. Screenshot 8 through 17
 
 ## Assignment 8 - Sentiment Analysis of User Reviews using AWS Lambda and Amazon Comprehend
 
-## 📌 Objective
+### 📌 Objective
 
 - This assignment demonstrates how to:
     - Deploy a Lambda function using Python and Boto3.
     - Use Amazon Comprehend to analyze sentiments (Positive, Negative, Neutral, Mixed).
 
-## 🔧 Steps
+### 🔧 Steps
 
 1. 🔐 Creating IAM Role for Lambda
 
@@ -129,6 +129,8 @@
     5. Screenshot 7 & 8
 
 ## Assignment 11 - EC2 Backup and Cleanup with Lambda, S3 and EventBridge
+
+### 📌 Objective
 
 -  This project automatically backs up specified directories from an EC2 instance to an S3 bucket using AWS Lambda and deletes backups older than 30 days.
 
@@ -263,9 +265,7 @@
 
 ## Assignment 12 - Auto-Scale EC2 Instances Based on ALB Load Using AWS Lambda
 
-Demonstrates how to automatically scale EC2 instances up or down based on HTTP request load on an Application Load Balancer (ALB) using AWS Lambda, CloudWatch, Boto3, and SNS.
-
-## 📌 Objectives
+### 📌 Objective
 
 - This assignment demonstrates how to:
     - Automatically launch a new EC2 instance when the ALB receives high traffic
@@ -362,7 +362,7 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
         - Looked for `RequestCount` metric on my ALB
 
     3. Verified Results
-        - Checked Lambda logs in CloudWatch. The load was high continously so it spawned 2 instances
+        - Checked Lambda logs in CloudWatch. The load was high continuously so it spawned 2 instances
         - Checked EC2 console for new/terminated instances. 2 New instances Created
         - Checked email for SNS alerts. Received 4 Notifications, first 2 for Upscaling and last 2 for downscaling
         - At last there were no instances with the TAG_VALUE `GunAutoScaled` so it just said Load is within Acceptable limits. No upscaling or downscaling needed
