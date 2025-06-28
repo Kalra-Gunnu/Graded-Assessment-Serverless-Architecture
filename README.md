@@ -1,5 +1,12 @@
 # Graded-Assessment-Serverless-Architecture
 
+## Table of Contents
+
+- [Assignment 1 - EC2 Automation](#assignment_1)
+- [Assignment 8 - Sentiment Analysis](#assignment_8)
+- [Assignment 11 - EC2 Backup with Lambda](#assignment_11)
+- [Assignment 12 - Auto-Scale with ALB](#assignment_12)
+
 
 # ASSIGNMENT_1: 🔁 Automated EC2 Instance Management using AWS Lambda and Boto3
 
@@ -152,7 +159,7 @@
         - `AmazonSSMManagedInstanceCore` ->
         - `AmazonS3FullAccess` ->
     4. Named it: `GunEC2SSMRole`
-    5. Attached the above role to my EC2 Isntance
+    5. Attached the above role to my EC2 Instance
         - Went to EC2 -> Instances
         - Selected my instance → Actions > Security > Modify IAM Role
         - Selected the Role `GunEC2SSMRole` and clicked on `Update IAM Role`
@@ -187,7 +194,7 @@
         # 8. Make a data folder in /home/ubuntu
         mkdir -p /home/ubuntu/data
 
-        # 9. Create a test file inside dat folder
+        # 9. Create a test file inside data folder
         sudo nano /home/ubuntu/data/sample.txt
 
         # 10. Give the below content in the file
@@ -237,7 +244,7 @@
         - Clicked Test
         - Created a test event with {} as the payload
     2. Verification:
-        - See the logs in lambda fucntion console for the run and see the success for the run
+        - See the logs in lambda function console for the run and see the success for the run
         - Checked the Cloudwatch Log streams and see the success for all the steps
         - a new .zip file appears in /tmp location of the EC2 instance
         - New zip file appears in backups/ folder of the S3 bucket
@@ -272,7 +279,7 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
     1. Went to SNS → Create Topic
         - Type: `Standard`
         - Name: `GunAutoScaleNotif`
-    2. Clicked on Create Subscripton and subscribed with my email
+    2. Clicked on Create Subscription and subscribed with my email
     3. Confirm it by going to the link on the mail received
     4. Screenshots 1 through 5
 
@@ -358,5 +365,15 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
         - Checked Lambda logs in CloudWatch. The load was high continously so it spawned 2 instances
         - Checked EC2 console for new/terminated instances. 2 New instances Created
         - Checked email for SNS alerts. Received 4 Notifications, first 2 for Upscaling and last 2 for downscaling
-        - At last there were no instances with the TAG_VALUE `GunAutoScaled` so it just said Load is within Acceptable limits. No upscalinjg or downscaling needed
+        - At last there were no instances with the TAG_VALUE `GunAutoScaled` so it just said Load is within Acceptable limits. No upscaling or downscaling needed
     4. Screenshots 26 through 38
+
+8. 🧩 Extras To use [Loader.io](https://loader.io/)
+    1. Signed Up
+    2. Added my ALB uri as host
+    3. Then it asked to put up a file on my server
+    4. Created that file on the EC2 instance(created and attached in target group)
+    5. Then installed nginx on the EC2 instance and put that file in /var/www/html
+    6. Then ran the ALB uri in the Browser
+    7. When the content got displayed on the browser, my ALB uri was verified as host
+    8. Then created a test and tested my app for Load
