@@ -53,7 +53,7 @@
     2. Clicked Edit
         - Set Timeout to at least 30 seconds
     3. Saved the configuration
-    4. ![Screenshot 7](Assignment_1/screenshots/7.%20Configuration%20Change.png)
+    4. Screenshot 7
 
 5. 🧪 Testing the Setup
 
