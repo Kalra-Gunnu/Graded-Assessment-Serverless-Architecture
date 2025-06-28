@@ -134,7 +134,7 @@
 
 -  This project automatically backs up specified directories from an EC2 instance to an S3 bucket using AWS Lambda and deletes backups older than 30 days.
 
-## 🔧 Steps
+### 🔧 Steps
 
 1. 🔐 Creating IAM Role for Lambda
 
@@ -240,7 +240,7 @@
     4. Screenshots 14 through 18
 
 
-6. 🧪 Testing the setup & Validation
+8. 🧪 Testing the setup & Validation
     1. Manual Trigger:
         - Went to my Lambda
         - Clicked Test
@@ -272,7 +272,7 @@
     - Automatically terminate an EC2 instance when traffic is low
     - Notify via SNS whenever scaling actions occur
 
-## 🔧 Steps
+### 🔧 Steps
 
 1. 🔔 Creating an SNS Topic
 
@@ -288,7 +288,7 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached below 4 policies to it
-        - `AmazonEC2FullAcces` -> Grants full access to Amazon EC2
+        - `AmazonEC2FullAccess` -> Grants full access to Amazon EC2
         - `AmazonSNSFullAccess` -> Grants full access to Amazon Simple Notification Service (SNS)
         - `AWSLambdaBasicExecutionRole` -> Provides basic permissions for Lambda(This is essential for all Lambda functions to allow logging and troubleshooting)
         - `CloudWatchReadOnlyAccess` -> Grants read-only access to CloudWatch metrics, dashboards, logs, alarms, etc
