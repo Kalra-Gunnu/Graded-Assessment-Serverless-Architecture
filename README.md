@@ -24,7 +24,8 @@
 
     1. Went to IAM > Roles > Create Role
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
-    3. Attached the `AmazonEC2FullAccess` policy
+    3. Attached the below policy
+        - `AmazonEC2FullAccess` -> 
     4. Named it: `GunLambdaEC2ControlRole`
     5. Screenshot 3 & 4
 
@@ -34,9 +35,10 @@
     2. Selected:
         - Runtime: `Python 3.13`
         - Use existing role: `GunLambdaEC2ControlRole`
-    3. In the code section added the code as per [lambda_function.py](Assignment_1/lambda_function.py)
-    4. Deployed the function
-    5. Screenshot 5 & 6
+    3. Named it `GunLambdaForEC2Automate`    
+    4. In the code section added the code as per [lambda_function.py](Assignment_1/lambda_function.py)
+    5. Deployed the function
+    6. Screenshot 5 & 6
 
 4. ⚙️ Configuring Lambda Timeout(As the default is only 3 seconds which is not sufficient)
 
@@ -70,8 +72,8 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached the following policies:
-        - `ComprehendFullAccess`
-        - `AWSLambdaBasicExecutionRole`
+        - `ComprehendFullAccess` -> 
+        - `AWSLambdaBasicExecutionRole` -> 
     4. Named it: `GunLambdaComprehend`
     5. Screenshot 1 through 3
 
@@ -81,9 +83,10 @@
     2. Selected:
         - Runtime: `Python 3.13`
         - Execution role: Use existing role → `GunLambdaComprehend`
-    3. In the code section added the code as per [lambda_function.py](Assignment_8/lambda_function.py)
-    4. Deployed the function.
-    5. Screenshot 4 & 5
+    3. Named it `GunAnalyseSentimentsLambda`
+    4. In the code section added the code as per [lambda_function.py](Assignment_8/lambda_function.py)
+    5. Deployed the function.
+    6. Screenshot 4 & 5
 
 3. ⚙️ Configuring Lambda Timeout(As the default is only 3 seconds which is not sufficient)
 
@@ -129,9 +132,9 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `Lambda`
     3. Attached the following policies:
-        - `AWSLambdaBasicExecutionRole`
-        - `AmazonSSMFullAccess`
-        - `AmazonS3FullAccess`
+        - `AWSLambdaBasicExecutionRole` ->
+        - `AmazonSSMFullAccess` -> 
+        - `AmazonS3FullAccess` -> 
     4. Named it: `GunBackupRole`
     5. Screenshot 1 & 2
 
@@ -146,13 +149,13 @@
     1. Went to AWS Console → IAM → Roles → Create Role.
     2. Selected `AWS service` as the trusted service and use case as `EC2`
     3. Attached the following policies:
-        - `AmazonSSMManagedInstanceCore`
-        - `AmazonS3FullAccess`
+        - `AmazonSSMManagedInstanceCore` ->
+        - `AmazonS3FullAccess` ->
     4. Named it: `GunEC2SSMRole`
     5. Attached the above role to my EC2 Isntance
         - Went to EC2 -> Instances
         - Selected my instance → Actions > Security > Modify IAM Role
-        - Selected the Role `GunEC2SSMRole` and clicked on Update IAM Role
+        - Selected the Role `GunEC2SSMRole` and clicked on `Update IAM Role`
     6. Screenshot 4 & 5
 
 
@@ -207,9 +210,10 @@
     2. Selected:
         - Runtime: `Python 3.13`
         - Execution role: Use existing role → `GunBackupRole`
-    3. In the code section added the code as per [lambda_function.py](Assignment_11/lambda_function.py)
-    4. Deployed the function.
-    5. Screenshot 12 & 13
+    3. Named it `gundeepEC2BackupLambda`    
+    4. In the code section added the code as per [lambda_function.py](Assignment_11/lambda_function.py)
+    5. Deployed the function.
+    6. Screenshot 12 & 13
 
 
 7. ⏰ Schedule Lambda with EventBridge
@@ -290,10 +294,11 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
     2. Selected:
         - Runtime: `Python 3.13`
         - Execution role: Use existing role → `GunAutoScalingRole`
-    3. In the code section added the code as per [lambda_function.py](Assignment_12/lambda_function.py)
-    4. Deployed the function. 
-    5. Screenshots 10 through 13
-    6. **IMP**: Configure Lambda Timeout to 30 as the default is only 3 seconds which is not sufficient
+    3. Named it `GunAutoscalerLambda`    
+    4. In the code section added the code as per [lambda_function.py](Assignment_12/lambda_function.py)
+    5. Deployed the function. 
+    6. Screenshots 10 through 13
+    7. **IMP**: Configure Lambda Timeout to 30 as the default is only 3 seconds which is not sufficient
 
 4. ⚖️ Creating an Application Load Balancer (ALB)
 
@@ -306,7 +311,7 @@ Demonstrates how to automatically scale EC2 instances up or down based on HTTP r
     4. Select `Listener: Port 80` and attach a Target Group
     5. Here I created a new TG `GunAutoScaleTargetGroup`
         - Target type: `Instances`
-        - Named: `GunAutoScaleTargetGroup`
+        - Name: `GunAutoScaleTargetGroup`
         - IP address type: `IPv4`
         - VPC: `default`
         - Protocol version: `HTTP1`
