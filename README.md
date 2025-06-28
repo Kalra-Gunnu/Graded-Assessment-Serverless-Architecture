@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-- [Assignment 1 - EC2 Automation](https://github.com/Kalra-Gunnu/Graded-Assessment-Serverless-Architecture?tab=readme-ov-file#assignment_1 -- automated-ec2-instance-management-using-aws-lambda-and-boto3)
-- [Assignment 8 - Sentiment Analysis](https://github.com/Kalra-Gunnu/Graded-Assessment-Serverless-Architecture?tab=readme-ov-file#assignment_8-sentiment-analysis-of-user-reviews-using-aws-lambda -- amazon-comprehend)
-- [Assignment 11 - EC2 Backup with Lambda](#assignment11-ec2-backup-and-cleanup-with-lambda-s3--eventbridge)
-- [Assignment 12 - Auto-Scale with ALB](#assignment12-auto-scale-ec2-instances-based-on-alb-load-using-aws-lambda)
+- [Assignment 1 - 🔁 EC2 Automation](#assignment-1---automated-ec2-instance-management-using-aws-lambda-and-boto3)
+- [Assignment 8 - 🧠 Sentiment Analysis](#assignment-8---sentiment-analysis-of-user-reviews-using-aws-lambda-and-amazon-comprehend)
+- [Assignment 11 - ☁️ EC2 Backup with Lambda](#assignment-11---ec2-backup-and-cleanup-with-lambda-s3-and-eventbridge)
+- [Assignment 12 - 🚀 Auto-Scale with ALB](#assignment-12---auto-scale-ec2-instances-based-on-alb-load-using-aws-lambda)
 
 
-# ASSIGNMENT_1: 🔁 Automated EC2 Instance Management using AWS Lambda and Boto3
+## Assignment 1 - Automated EC2 Instance Management using AWS Lambda and Boto3
 
 ## 📌 Objective
 
@@ -64,7 +64,7 @@
         - With 1st running and 2nd stopped: After running, Stopped 1st instance and Started 2nd instance
     3. Screenshot 8 through 17
 
-# ASSIGNMENT_8:🧠 Sentiment Analysis of User Reviews using AWS Lambda & Amazon Comprehend
+## Assignment 8 - Sentiment Analysis of User Reviews using AWS Lambda and Amazon Comprehend
 
 ## 📌 Objective
 
@@ -128,7 +128,7 @@
         ```
     5. Screenshot 7 & 8
 
-# ASSIGNMENT_11: ☁️ EC2 Backup and Cleanup with Lambda, S3 & EventBridge
+## Assignment 11 - EC2 Backup and Cleanup with Lambda, S3 and EventBridge
 
 -  This project automatically backs up specified directories from an EC2 instance to an S3 bucket using AWS Lambda and deletes backups older than 30 days.
 
@@ -261,7 +261,7 @@
     5. This deleted the old backup created more than 3 hours ago and created a fresh new one.
     6. Screenshots 23 through 25
 
-# ASSIGNMENT_12: 🚀 Auto-Scale EC2 Instances Based on ALB Load Using AWS Lambda
+## Assignment 12 - Auto-Scale EC2 Instances Based on ALB Load Using AWS Lambda
 
 Demonstrates how to automatically scale EC2 instances up or down based on HTTP request load on an Application Load Balancer (ALB) using AWS Lambda, CloudWatch, Boto3, and SNS.
 
