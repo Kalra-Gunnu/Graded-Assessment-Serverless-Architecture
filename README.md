@@ -367,12 +367,13 @@
         - At last there were no instances with the TAG_VALUE `GunAutoScaled` so it just said Load is within Acceptable limits. No upscaling or downscaling needed
     4. Screenshots 26 through 38
 
-8. 🧩 Extras To use [Loader.io](https://loader.io/)
-    1. Signed Up
-    2. Added my ALB uri as host
-    3. Then it asked to put up a file on my server
-    4. Created that file on the EC2 instance(created and attached in target group)
-    5. Then installed nginx on the EC2 instance and put that file in /var/www/html
-    6. Then ran the ALB uri in the Browser
-    7. When the content got displayed on the browser, my ALB uri was verified as host
-    8. Then created a test and tested my app for Load
+8. 🧩 Extras: Load Testing with [Loader.io](https://loader.io/)
+    1. To test the application's load-handling capabilities, we used Loader.io as follows:
+    2. Signed Up on Loader.io with a new account.
+    3. Added the Application Load Balancer (ALB) URL as the target host in Loader.io.
+    4. Verification File Required: Loader.io provided a verification token and asked to place it on the server.
+    5. Created the Verification File on the EC2 instance (which was part of the ALB's target group).
+    6. Installed Nginx on the EC2 instance and placed the verification file in the /var/www/html directory.
+    7. Accessed the ALB URL in the Browser to confirm the file was being served correctly.
+    8. Verification Successful: Loader.io verified the ALB URL as a valid host.
+    9. Created and Executed a Load Test to simulate traffic and assess application performance under load.
